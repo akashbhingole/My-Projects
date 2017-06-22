@@ -1,0 +1,9 @@
+<html>
+  <head>
+      <script>
+        var requestToken = (document.URL).split("code=")[1];
+        window.localStorage.setItem("userToken", requestToken);
+        window.location.href = "http://localhost:8080/InvoiceGeneratorApp/#/dashboard";
+      </script>
+  </head>
+</html>

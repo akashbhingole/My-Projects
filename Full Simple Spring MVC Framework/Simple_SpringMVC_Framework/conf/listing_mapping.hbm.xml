@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+  	<class name="com.model.login.Login" table="login_details" lazy="false">
+  		<id name="id" column="id" type="int" length="11">
+			<generator class="native"/>
+       	</id>
+		<property name="emailId" column="email" type="string" length="100"/>
+      	<property name="password" column="password" type="string" length="20"/>
+      	<property name="doctorId" column="doctor_id" type="int" length="11"/>
+  	</class>
+
+</hibernate-mapping>

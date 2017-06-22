@@ -1,0 +1,87 @@
+
+<div style="padding-left:10px; border:3px solid; height:650px;">
+  <div style="width:1170px; height:50px;">
+      <button style="float:right; margin-top:10px; margin-right:100px;" type="button" class="btn btn-success" ng-click="saveInvoice(invoiceForm);">Save Invoice</button>
+      <button style="float:right; margin-top:10px; margin-right:50px;" type="button" class="btn btn-primary" ng-click="redirectTo('dashboard');">Back</button>
+  </div>
+  <h3 class="forms-example">Invoice Form </h3>
+  <div class="help-block" ng-messages="invoiceForm.customerId.$error" ng-if="submitted">
+      <p ng-message="minlength">Pelase enter valid customer id of minimum length 3 and maximum lenght 8.</p>
+      <p ng-message="maxlength">Pelase enter valid customer id of minimum length 3 and maximum lenght 8.</p>
+      <p ng-message="required">Please enter customer id.</p>
+  </div>
+  <div class="help-block" ng-messages="invoiceForm.customerName.$error" ng-if="submitted && invoiceForm.customerId.$valid">
+      <p ng-message="minlength">Pelase enter valid customer name of minimum length 3 and maximum lenght 8.</p>
+      <p ng-message="maxlength">Pelase enter valid customer name of minimum length 3 and maximum lenght 8.</p>
+      <p ng-message="required">Please enter customer name.</p>
+  </div>
+  <div class="help-block" ng-messages="invoiceForm.contactNumber.$error" ng-if="submitted && invoiceForm.customerName.$valid">
+      <p ng-message="minlength">Pelase enter valid contact number of 10 digits.</p>
+      <p ng-message="maxlength">Pelase enter valid contact number of 10 digits.</p>
+      <p ng-message="required">Please enter customer contact number.</p>
+  </div>
+  <div class="help-block" ng-messages="invoiceForm.address.$error" ng-if="submitted && invoiceForm.contactNumber.$valid">
+      <p ng-message="minlength">Pelase enter valid contact number of 10 digits.</p>
+      <p ng-message="maxlength">Pelase enter valid contact number of 10 digits.</p>
+      <p ng-message="required">Please enter customer contact number.</p>
+  </div>
+  <form name="invoiceForm" novalidate>
+    <div class="form-group">
+      <div class="col-xs-4">
+        <label for="exampleInputEmail1">Customer Id</label>
+        <input type="text" name="customerId" ng-minlength="3" ng-maxlength="8" class="form-control" placeholder="Customer Id" ng-model="invoiceObj.customerId" required>
+      </div>
+      <div class="col-xs-4">
+        <label for="exampleInputEmail1">Customer Name</label>
+        <input type="text" name="customerName" ng-minlength="3" ng-maxlength="8" class="form-control" placeholder="Customer Name" ng-model="invoiceObj.customerName" required>
+      </div>
+      <div class="col-xs-4">
+        <label for="exampleInputEmail1">Customer Contact Number</label>
+        <input type="text" name="contactNumber" ng-minlength="10" ng-maxlength="10" class="form-control" placeholder="Customer Contact Number" ng-model="invoiceObj.contactNumber" required>
+      </div>
+      <div class="col-xs-6" style="margin-top: 20px;">
+        <label for="exampleInputEmail1">Customer Address</label>
+        <input type="text" name="address" ng-minlength="4" ng-maxlength="30" class="form-control" placeholder="Customer Address" ng-model="invoiceObj.address">
+      </div>
+    </div>
+    <div style="margin-top:50px;">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <td class="col-md-2">Item Id</td>
+            <td class="col-md-2">Item Name</td>
+            <td class="col-md-2">Price</td>
+            <td class="col-md-2">Quantity</td>
+            <td class="col-md-2">Total</td>
+            <td class="col-md-2"></td>
+          </tr>
+        </thhead>
+        <tbody>
+          <tr>
+            <td class="col-md-2"><input type="text" class="form-control" placeholder="Item Id" ng-model="newItem.id"></td>
+            <td class="col-md-2"><input type="text" class="form-control" placeholder="Item Name" ng-model="newItem.name"></td>
+            <td class="col-md-2"><input type="text" class="form-control" placeholder="Price" ng-model="newItem.price"></td>
+            <td class="col-md-2"><input type="text" class="form-control" placeholder="Quantity" ng-model="newItem.quantity"></td>
+            <td class="col-md-2"><input type="text" class="form-control" placeholder="Total" value="{{ newItem.total = ((newItem.price != undefined && newItem.quantity != undefined)? newItem.price*newItem.quantity : 0)}}" disabled></input></td>
+            <td class="col-md-2"><button type="button" class="btn btn-success" ng-click="addNewItem();">Add</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <table class="table">
+          <tr ng-repeat="item in invoiceObj.itemList">
+            <td>{{item.id}}</td> <td>{{item.name}}</td> <td>{{item.price}}</td> <td>{{item.quantity}}</td> <td>{{item.total}}</td>
+          </tr>
+      </table>
+    </div>
+    <!--<div>
+      <table class="table">
+          <tr ng-show="invoiceObj.itemList.length>0">
+            <td class="col-md-6"></td><td class="col-md-2">Sub Total:</td><td class="col-md-2">{{subtotal}}</td><td class="col-md-2"></td>
+          </tr>
+      </table>
+    </div>-->
+  </form>
+</div>

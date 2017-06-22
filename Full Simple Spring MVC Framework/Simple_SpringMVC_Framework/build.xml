@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<project name="Docbiz" default="compile">
+	<path id="compile.classpath">
+		<fileset dir="WEB-INF/lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	<target name="init">
+		<delete dir="WEB-INF/classes"/>
+		<mkdir dir="WEB-INF/classes/conf"/>
+		<mkdir dir="WEB-INF/classes/resources"/>
+		<mkdir dir="dist" />
+	</target>
+	<target name="compile" depends="init" >
+		<javac destdir="WEB-INF/classes" debug="true" srcdir="src">
+			<classpath refid="compile.classpath"/>
+		</javac>
+		<copy todir="WEB-INF/classes">
+			<fileset dir="conf"/>
+		</copy>
+		<copy todir="WEB-INF/classes/resources">
+					<fileset dir="resources"/>
+		</copy>
+	</target>
+	<target name="war">
+		<war destfile="dist/SimpleFramework.war" webxml="WEB-INF/web.xml">
+			<fileset dir="dist"/>
+			<lib dir="WEB-INF/lib"/>
+			<classes dir="WEB-INF/classes"/>
+		</war>
+	</target>
+</project>

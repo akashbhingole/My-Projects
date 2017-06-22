@@ -1,0 +1,24 @@
+<div class="container">
+  	<form name="loginForm">
+  		<br>
+  		<h3 class="forms-example"><u>Invoice Generation</u></h3>
+  		<br><br>
+    	<div class="form-group">
+	      	<div class="col-xs-3">
+		        <label for="exampleInputEmail1">Enter User Name <span style="color: red;">*</span></label>
+		        <input type="text" name="userName" class="form-control" placeholder="User Name" ng-model="loginObj.userName" required>
+		        <span class="error"	ng-show="loginForm.userName.$invalid"></span>
+	      	</div>
+	      	<div class="col-xs-3">
+		        <label for="exampleInputEmail1">Enter Password <span style="color: red;">*</span></label>
+		        <input type="password" name="password"  class="form-control" placeholder="Password" ng-model="loginObj.password" required>
+		        <span class="error"	ng-show="loginForm.password.$invalid"></span>
+	      	</div>
+	      	<br>
+	      	<div class="col-xs-3">
+	      		<button type="submit" class="btn btn-success" ng-click="checkLogin(loginForm);">Login</button>
+	      		<button type="button" class="btn btn-primary" ng-click="checkLoginForGmail()"> Login with Gmail</button>
+	      	</div>
+    	</div>
+  	</form>
+</div>

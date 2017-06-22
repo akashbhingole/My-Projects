@@ -1,0 +1,38 @@
+{
+	"status": "success",
+	"object": [{
+			"id" : 12,
+			"customerId": "WD-1",
+			"customerName": "Akash",
+			"contactNumber": "7620676545",
+			"address": "Pune",
+			"itemList": [{
+				"id": "Item-1",
+				"name": "Item1",
+				"price": "25",
+				"quantity": "2",
+				"total": "50"
+			},{
+				"id": "Item-2",
+				"name": "Item2",
+				"price": "50",
+				"quantity": "2",
+				"total": "100"
+			}]
+		}, {
+			"id" : 13,
+			"customerId": "WD-2",
+			"customerName": "Yuvraj",
+			"contactNumber": "7620676545",
+			"address": "Delhi",
+			"itemList": [{
+				"id": "Item-1",
+				"name": "Item1",
+				"price": "25",
+				"quantity": "2",
+				"total": "50"
+			}]
+		}
+
+	]
+}

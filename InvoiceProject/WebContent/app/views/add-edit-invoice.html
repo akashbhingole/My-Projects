@@ -1,0 +1,95 @@
+
+<div style="padding-left:10px; border:3px solid; height:650px;">
+	<form name="invoiceForm" novalidate>
+		<div style="width:1170px; height:50px;">
+	    	<button style="float:right; margin-top:10px; margin-right:100px;" type="submit" class="btn btn-success" ng-click="saveInvoiceDetails(invoiceForm);">
+	    		<span ng-hide="invoiceObj.id!=0">Save Invoice</span>
+	    		<span ng-show="invoiceObj.id!=0">Update Invoice</span>
+	    	</button>
+	      	<button style="float:right; margin-top:10px; margin-right:50px;" type="button" class="btn btn-primary" ng-click="redirectTo('');">Back</button>
+	  	</div>
+	  	<h3 class="forms-example">Invoice Form </h3>
+	  	<div class="help-block" ng-messages="invoiceForm.customerName.$error" ng-if="submitted && invoiceForm.customerName.$invalid">
+	      	<p ng-message="required">Please enter Customer Name.</p>
+	  	</div>
+	  	<div class="help-block" ng-messages="invoiceForm.itemName.$error" ng-if="submitted && invoiceForm.itemName.$invalid">
+	      	<p ng-message="required">Please enter Item Name.</p>
+	  	</div> 
+	  	<div class="help-block" ng-messages="invoiceForm.price.$error" ng-if="submitted && invoiceForm.price.$invalid">
+	      	<p ng-message="required">Please enter Price.</p>
+	  	</div> 
+	  	<div class="help-block" ng-messages="invoiceForm.quantity.$error" ng-if="submitted && invoiceForm.quantity.$invalid">
+	      	<p ng-message="required">Please enter Quantity.</p>
+	  	</div> 
+	  	<div class="help-block" ng-messages="invoiceForm.total.$error" ng-if="submitted && invoiceForm.total.$valid">
+	      	<p ng-message="required">Please enter Total.</p>
+	  	</div> 
+	   	
+	    	<div class="form-group">
+	      		<div class="col-xs-4">
+	        		<label for="exampleInputEmail1">Id</label>
+	        		<input type="text" name="id" class="form-control" placeholder="Customer Id" ng-model="invoiceObj.id" disabled="disabled">
+	      		</div>
+		      	<div class="col-xs-4">
+			        <label for="exampleInputEmail1">Customer Name <span style="color: red;">*</span></label>
+			        <input type="text" name="customerName" class="form-control" placeholder="Customer Name" ng-model="invoiceObj.customerName" required>
+		      		<span class="error"	ng-show="invoiceForm.customerName.$invalid"></span>
+		      	</div>
+		      	<div class="col-xs-4">
+			        <label for="exampleInputEmail1">Customer Address</label>
+			        <input type="text" name="customerAddress"  class="form-control" placeholder="Customer Address" ng-model="invoiceObj.customerAddress">
+		      	</div>
+		      	<div class="col-xs-6" style="margin-top: 20px;">
+			        <label for="exampleInputEmail1">Item Name <span style="color: red;">*</span></label>
+			        <input type="text" name="itemName"  class="form-control" placeholder="Item Name" ng-model="invoiceObj.itemName" required>
+		      	</div>
+		      	<div class="col-xs-6" style="margin-top: 20px;">
+			        <label for="exampleInputEmail1">Price <span style="color: red;">*</span></label>
+			        <input type="text" name="price" class="form-control" placeholder="Price" ng-model="invoiceObj.price" ng-keyup="calculateTotal()" required>
+		      	</div>
+		      	<div class="col-xs-6" style="margin-top: 20px;">
+			        <label for="exampleInputEmail1">Quantity <span style="color: red;">*</span></label>
+			        <input type="text" name="quantity" class="form-control" placeholder="Quantity" ng-model="invoiceObj.quantity" ng-keyup="calculateTotal()" required>
+		      	</div>
+		      	<div class="col-xs-6" style="margin-top: 20px;">
+			        <label for="exampleInputEmail1">Total <span style="color: red;">*</span></label>
+			        <input type="text" name="total" class="form-control" placeholder="Total" ng-model="invoiceObj.total" required>
+		      	</div>
+	    	</div>
+	    	<!-- <div style="margin-top:50px;">
+		      	<table class="table table-hover">
+			        <thead>
+			        	<tr>
+				            <td class="col-md-2">Item Id</td>
+				            <td class="col-md-2">Item Name</td>
+				            <td class="col-md-2">Price</td>
+				            <td class="col-md-2">Quantity</td>
+				            <td class="col-md-2">Total</td>
+				            <td class="col-md-2"></td>
+			          	</tr>
+			        </thead>
+			        <tbody>
+			          	<tr>
+				            <td class="col-md-2"><input type="text" class="form-control" placeholder="Item Id" ng-model="newItem.id"></td>
+				            <td class="col-md-2"><input type="text" class="form-control" placeholder="Item Name" ng-model="newItem.name"></td>
+				            <td class="col-md-2"><input type="text" class="form-control" placeholder="Price" ng-model="newItem.price"></td>
+				            <td class="col-md-2"><input type="text" class="form-control" placeholder="Quantity" ng-model="newItem.quantity"></td>
+				            <td class="col-md-2"><input type="text" class="form-control" placeholder="Total" value="{{ newItem.total = ((newItem.price != undefined && newItem.quantity != undefined)? newItem.price*newItem.quantity : 0)}}" disabled></input></td>
+				            <td class="col-md-2"><button type="button" class="btn btn-success" ng-click="addNewItem();">Add</button></td>
+			          	</tr>
+			        </tbody>
+		      	</table>
+	    	</div> -->
+		    <!-- <div>
+		     	<table class="table">
+		          	<tr ng-repeat="item in invoiceObj.itemList">
+		            	<td>{{item.id}}</td> 
+		            	<td>{{item.name}}</td> 
+		            	<td>{{item.price}}</td> 
+		            	<td>{{item.quantity}}</td> 
+		            	<td>{{item.total}}</td>
+		        	</tr>
+		      	</table>
+		    </div> -->
+  	</form>
+</div>

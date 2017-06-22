@@ -1,0 +1,16 @@
+UNUSED.has-error .control-label,
+UNUSED.has-error .radio,
+UNUSED.has-error .checkbox,
+UNUSED.has-error .radio-inline,
+UNUSED.has-error .checkbox-inline,
+UNUSED.has-error.radio label,
+UNUSED.has-error.checkbox label,
+UNUSED.has-error.radio-inline label,
+UNUSED.has-error.checkbox-inline label {
+  color: #f05050;
+}
+.has-error .form-control:focus {
+  border-color: #ec2121;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f8aeae;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f8aeae;
+}

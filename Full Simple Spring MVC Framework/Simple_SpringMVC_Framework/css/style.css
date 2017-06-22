@@ -1,0 +1,48 @@
+body {
+	
+  	margin: auto;important;
+    width: 100%;importent;
+    background-color: #b0e0e6;important;
+    
+}
+
+h1 {
+    color: #00ff00;
+}
+
+h2 {
+    color: rgb(255,0,0);
+}
+
+.height40 {
+	height:40px;
+}
+
+.center {
+    margin: auto;important;
+    background-color: #b0e0e6;
+}
+
+.top15{
+	margin-top:15px;
+}
+.top70{
+	margin-top:70%;
+}
+
+.padding10{
+	padding:10px;
+}
+
+.width300{
+	width:300px;
+}
+
+.height150{
+	height:150px;
+}
+
+.bottom10{
+	margin-bottom:10px;
+}
+

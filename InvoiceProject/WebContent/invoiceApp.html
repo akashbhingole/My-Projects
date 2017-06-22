@@ -1,0 +1,63 @@
+<!-- <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Invoice Generation</title>
+  </head>
+  <body>
+    <h2><a href="http://localhost:8080/InvoiceProject/login/loginpage">Click Here to Login</a></h2>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <link rel="stylesheet" href="app/css/bootstrap.min.css">
+      <style>
+        @media screen {
+          #printSection {
+              display: none;
+          }
+        }
+
+        @media print {
+          body * {
+            visibility:hidden;
+          }
+          #printSection, #printSection * {
+            visibility:visible;
+          }
+          #printSection {
+            position:absolute;
+            left:0;
+            top:0;
+          }
+        }
+        .help-block p {color:red;}
+      </style>
+  </head>
+  <body ng-app="InvoiceGeneratorApp">
+    <div ng-controller="MainController" class="container" style="width:1170px; height:50px;">
+        <h1 class="forms-example"><u>Invoice Generation</u></h1>
+        <span ng-show="userName">Welcome, {{userName}}</span>
+        <button type="button" class="btn btn-primary" ng-click="logout();">Logout</button>
+        <ng-view></ng-view>
+    </div>
+  </body>
+  <script src="app/js/lib/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+  <script src="app/js/lib/angular-route.min.js"></script>
+  <script src="app/js/lib/bootstrap.min.js"></script>
+  <script src="app/js/invoiceApp.js"></script>
+  <script src="app/js/directive/printDirective.js"></script>
+  <script src="app/js/service/HttpCommunicationUtil.js"></script>
+  <script src="app/js/service/InvoiceService.js"></script>
+  <script src="app/js/service/PDFGeneratorService.js"></script>
+  <script src="app/js/controller/MainController.js"></script>
+  <script src="app/js/controller/LoginController.js"></script>
+  <script src="app/js/controller/DashboardController.js"></script>
+  <script src="app/js/controller/InvoiceController.js"></script>
+
+  <script src="app/js/lib/pdfmake.min.js"></script>
+  <script src="app/js/lib/vfs_fonts.js"></script>
+</html>

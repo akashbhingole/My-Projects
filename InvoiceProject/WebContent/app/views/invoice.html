@@ -1,0 +1,77 @@
+<div style="padding-left:10px; border:3px solid; height:650px;" ng-init="showInvoice();">
+	<div style="width:1170px; height:50px;">
+      	<button style="float:right; margin-top:10px; margin-right:100px;" type="button" class="btn btn-primary" ng-print print-element-id="printArea">Print</button>
+      	<button style="float:right; margin-top:10px; margin-right:50px;" type="button" class="btn btn-primary" ng-click="generatePDF();">Export as PDF</button>
+    	<button ng-show="invoice.id!=undefined" style="float:right; margin-top:10px; margin-right:50px;" type="button" class="btn btn-primary" ng-click="redirectTo('');">Back</button>
+  	</div>
+  	<div id="printArea">
+	    <h3 class="forms-example">Invoice</h3>
+	    <form>
+	    	<div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Invoice Id: </label>
+		          	<span ng-bind="invoice.id"></span>
+		        </div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Customer Name: </label>
+		          	<span ng-bind="invoice.customerName"></span>
+		        </div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Customer Address: </label>
+		          	<span ng-bind="invoice.customerAddress"></span>
+		        </div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Item Name: </label>
+		          	<span ng-bind="invoice.customerAddress"></span>
+		        </div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Price: </label>
+		          	<span ng-bind="invoice.price"></span>
+		        </div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Quantity: </label>
+		          	<span ng-bind="invoice.quantity"></span>
+		        </div>
+		        <div class="col-xs-4">
+		        	<label for="exampleInputEmail1">Total:</label>
+		          	<span ng-bind="invoice.total"></span>
+		        </div>
+	      	</div>
+	      	<!-- <div style="margin-top:50px;">
+		        <table class="table table-hover">
+			        <thead>
+			        	<tr>
+			            	<td class="col-md-2">Item Id</td>
+			              	<td class="col-md-2">Item Name</td>
+			              	<td class="col-md-2">Price</td>
+			              	<td class="col-md-2">Quantity</td>
+			              	<td class="col-md-2">Total</td>
+			             	<td class="col-md-2"></td>
+			        	</tr>
+			        </thead>
+			        <tbody>
+			            <tr ng-repeat="item in invoice.itemList">
+			              <td>{{item.id}}</td> <td>{{item.name}}</td> <td>{{item.price}}</td> <td>{{item.quantity}}</td> <td>{{item.total}}</td>
+			            </tr>
+			        </tbody>
+		        </table>
+	      	</div> -->
+	      	<!-- <div>
+		        <table class="table">
+		            <tr>
+		              <td class="col-md-6"></td><td class="col-md-2">Sub Total:</td><td class="col-md-2">{{payementObj.subtotal}}</td><td class="col-md-2"></td>
+		            </tr>
+		            <tr>
+		              <td class="col-md-6"></td><td class="col-md-2">Tax:</td><td class="col-md-2">12</td><td class="col-md-2"></td>
+		            </tr>
+		            <tr>
+		              <td class="col-md-6"></td><td class="col-md-2">Tax Amount:</td><td class="col-md-2">{{payementObj.taxAmount}}</td><td class="col-md-2"></td>
+		            </tr>
+		            <tr>
+		              <td class="col-md-6"></td><td class="col-md-2">Total:</td><td class="col-md-2">{{payementObj.total}}</td><td class="col-md-2"></td>
+		            </tr>
+		        </table>
+	      	</div> -->
+	    </form>
+  	</div>
+</div>
